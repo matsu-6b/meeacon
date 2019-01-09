@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<script src="components/loader.js"></script>
+	<link rel="stylesheet" href="components/loader.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/ncmb-latest.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/cssua.min.js"></script>
+	<script src="js/functions.js"></script>
+
+	<!--ビーコンのjsを読み込む-->
+	<script src="js/beacon.js"></script>
+
+</head>
+
+<body bgcolor="#ffffff">
+
+	<!--ログインページ -->
+	<div data-role="page" id="IDLoginPage" class="test" style="background: white">
+		<p>
+			<p style="margin:80px 0px 40px 0px;">
+				<center><img src="images/title.png"></center>
+			</p>
+			<section data-role="content">
+				<p style="margin:20x 0px 40px 0px;">
+					メールアドレス
+					<input type="text" id="login_username">
+				</p>
+				<p style="margin:20x 0px 40px 0px;">
+					パスワード
+					<input type="password" id="IDLogin_password">
+				</p>
+				<p style="margin:20x 0px 40px 0px;">
+					<a href="#" class="sample" id="IDLoginBtn" data-role="button" data-inline="false" data-theme="b">ログインする</a>
+				</p>
+				<p style="margin:20x 0px 40px 0px;">
+					<a href="#IDRegisterPage" data-role="button" data-inline="false" data-theme="b">アカウント登録</a>
+				</p>
+			</section>
+			<div data-role="footer" data-position="fixed" data-theme="c">
+			</div>
+	</div>
+
+	<!--新規登録ページ -->
+
+	<div data-role="page" id="IDRegisterPage" style="background: white">
+		<header data-role="header" data-position="fixed" data-theme="c">
+			<a href="#IDLoginPage" data-role="button" data-mini="true" data-inline="true" data-theme="b">戻る</a>
+			<h1><b>新規登録</b></h1>
+		</header>
+		<section data-role="content">
+			学年
+			<p>
+				<select>
+          <option name = "Grade" value ="1" selected>1</option>
+          <option name = "Grade" value ="2" >2</option>
+          <option name = "Grade" value ="3" >3</option>           <option name = "Grade" value ="4" >4</option>
+        </select>
+			</p>
+			性別
+			<p>
+				<select>
+          <option name = "Sex" value ="男" selected>男</option>
+          <option name = "Sex" value ="女">女</option>
+       </select>
+			</p>
+			学部
+			<p>
+				<select>
+          <optgroup label="八王子キャンパス">
+          <option name = "department" value ="CS" selected>CS</option>
+          <option name = "department" value ="メディア">メディア</option>
+          <option name = "department" value ="応用生物">応用生物</option>
+          <option name = "department"value ="工学部">工学部</option>
+          </optgroup>
+          <optgroup label="蒲田キャンパス">
+          <option name = "department"value ="デザイン">デザイン</option>
+          <option name = "department"value ="医療保健">医療保健</option>
+          </optgroup>
+        </select>
+			</p>
+
+			メールアドレス
+			<input type="email" id="reg_username" placeholder="test@edu.teu.ac.jp"> パスワード(８文字以上)
+			<input type="password" id="IDReg_password">
+			<br>
+			<a href="#" id="IDRegisterBtn" data-role="button" data-inline="false" data-theme="b">登録する</a>
+		</section>
+	</div>
+	</div>
+
+	<!-- メニュー画面 -->
+	<div data-role="page" id="menu" style="background: white">
+		<header data-role="header" data-position="fixed" data-theme="c">
+			<a href="#Config" data-role="button" data-inline="true" data-theme="b">設定</a>
+			<h1>メニュー画面</h1>
+		</header>
+		<section data-role="content">
+			<div class="aobachan">
+				<div class="test_in">
+					<p id="test_in">Hello!!</p>
+				</div>
+			</div>
+			<div>
+
+		</section>
+
+		<!--  
+    
+    <a href="#number"><img src="images/ninnzuuhyouzi.png" width="20%" height="20%" style="position: absolute; left: 5%; top: 80%"/"/></a>
+
+		<a href="#Record"><img src="images/rireki.png" width="20%" height="20%" style="position: absolute; left: 40%; top: 80%"/"/></a>
+
+		<a href="#number" data-rel="popup" onclick="window.plugins.socialsharing.share(returnLastCheckIn()+' #meeacon')"><img src="images/kyouyuu.png" width="20%" height="20%" style="position: absolute; left: 75%; top: 80%"/"/></a>
+		-->
+
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<a href="#number" onclick="AllTrue()" data-role="button" data-inline="true" data-theme="b" data-mini="false">人数表示</a>
+					</li>
+					<li>
+						<a href="#Record" onclick="myHistory()" data-role="button" data-inline="true" data-theme="b" data-mini="false">履歴</a>
+					</li>
+					<li>
+						<a data-rel="popup" data-role="button" input type="button" data-inline="true" onclick="window.plugins.socialsharing.share(returnLastCheckIn()+' #meeacon')"
+						 data-theme="b" data-mini="false">共有</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+		</div>
+
+		<!-- 人数表示-->
+		<div data-role="page" id="number" style="background: white">
+			<header data-role="header" data-position="fixed" data-theme="c">
+				<a href="#" data-role="button" data-mini="true" data-rel="back" data-inline="true" data-theme="b">戻る</a>
+				<h1>人数表示</h1>
+
+				<button type="button" data-role="button" data-inline="true" data-theme="b" onclick="AllTrue()" data-mini="true">更新
+		</header>
+
+		<section data-role="content">
+      
+				<center><img src="images/test2.jpg" width="70%" height="70%"></center>
+			
+			<script>
+				var appKey = "";
+var clientKey = "";
+var ncmb = new NCMB(appKey, clientKey);
+			</script>
+
+        <div class="AUser">
+				<div id="AUser">現在Aにいる人数は0人です。</div>
+        </div>
+        <div class ="AUser2">
+        <div id = "AUser2"></div>
+        </div>
+        
+        <div class="AUser3">
+          <div id = "AUser3"></div>
+        </div>
+        <br><br>
+				<center><img src="images/oonoken.jpg" width="70%" height="70%"></center>
+
+        <div class="BUser">
+				<div id="BUser">現在Bにいる人数は0人です。</div>
+        </div>
+        <div class="BUser2">
+				<div id="BUser2"></div>
+        </div>
+        <div class="BUser3">
+				<div id="BUser3"></div>
+        </div>
+				</section>
+    
+				<div data-role="footer" data-position="fixed" data-theme="c">
+				</div>
+		</div>
+
+		<!-- 履歴-->
+		<div data-role="page" id="Record" style="background: white">
+			<header data-role="header" data-position="fixed" data-theme="c">
+				<a href="#" data-role="button" data-mini="true" data-rel="back" data-inline="true" data-theme="b">戻る</a>
+				<h1>履歴</h1>
+			</header>
+			<section data-role="content">
+
+				<center>
+					<table id="table1" class="center" border=1>履歴を表示します。（最大50件まで）
+					</table>
+				</center>
+
+			</section>
+		</div>
+
+		<!-- 設定-->
+		<div data-role="page" id="Config" style="background: white">
+			<header data-role="header" data-position="fixed" data-theme="c">
+				<a href="#menu" data-role="button" data-mini="true" data-inline="true" data-theme="b">戻る</a>
+				<h1>設定</h1>
+			</header>
+			<section data-role="content">
+				<br><br>
+				<a style="margin:80px 0px 40px 0px;">
+					<center><img src="images/title.png"></center>
+				</a>
+				<br><br><br>
+        <a href="#DetailPage"><img src="images/ac2.png" width="43%" height="43%"></a>
+					　　
+				<a href="#BugForm" data-inline="false"><img src="images/toiawase2.png"  width="43%" height="43%"></a>
+        			<br><br><br>
+				<a href="#yesNoDialog_logout" data-rel="popup" data-transition="pop"><img src="images/logout2.png" width="43%" height="43%"></a>
+				　　
+				<a href="#yesNoDialog_delete" data-rel="popup" data-transition="pop"><img src="images/dereat2.png" width="43%" height="43%"></a>
+
+
+				<div data-role="popup" id="yesNoDialog_delete" data-overlay-theme="a" data-theme="c" data-dismissible="false" style="max-width:400px;"
+				 class="ui-corner-all">
+					<div data-role="header" data-theme="c" class="ui-corner-top" style="top: 0 !important;">
+						<h1>確認</h1>
+					</div>
+					<div align="middle" data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+						<h3 class="ui-title"></h3>
+						<p>本当にアカウントを削除しますか？</p>
+						<a href="#" id="YesBtn_delete" data-role="button" data-inline="true" data-theme="b">はい</a>
+						<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="b">いいえ</a>
+					</div>
+				</div>
+
+				<div data-role="popup" id="yesNoDialog_logout" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all">
+					<div data-role="header" data-theme="c" class="ui-corner-top" style="top: 0 !important;">
+						<h1>確認</h1>
+					</div>
+					<div align="middle" data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+						<h3 class="ui-title"></h3>
+						<p>ログアウトしてもよろしいですか？</p>
+						<a href="#" id="YesBtn_logout" data-role="button" data-inline="true" data-theme="b">はい</a>
+						<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="b">いいえ</a>
+					</div>
+				</div>
+
+
+
+			</section>
+			<div data-role="footer" data-position="fixed" data-theme="c">
+			</div>
+		</div>
+
+		<!-- バグ報告フォーム -->
+				<div data-role="page" id="BugForm" style="background: white">
+					<header data-role="header" data-position="fixed" data-theme="c">
+						<a href="#Config" data-role="button" data-mini="true" data-inline="true" data-theme="b">戻る</a>
+						<h1>不具合報告</h1>
+					</header>
+     <section data-role="content">
+                           <div id="form_txt">報告内容
+                    </div>
+                                        <div align="center">
+                        <textarea id="form_comment" cols="30" rows="5"></textarea>
+                    </div>
+                                        <input type="button" name="SendBtn" onclick="return sendForm();" value="送 信" data-theme="b">
+                </section>
+				</div>
+
+		<!-- 詳細ページ -->
+
+		<div data-role="page" id="DetailPage" style="background: white">
+			<header data-role="header" data-position="fixed" data-theme="c">
+				<a href="#Config" data-role="button" data-mini="true" data-inline="true" data-theme="b">戻る</a>
+        
+				<h1>アカウント情報</h1>
+
+			</header>
+			<section data-role="content">
+				<br></br>
+				<center>
+					<table data-role="listview" class="currentUserData" id="currentUserData" data-theme="xyz" style="width: 100%;"></table>
+				</center>
+				<br>
+				</br>
+			</section>
+		</div>
+</body>
+
+</html>
