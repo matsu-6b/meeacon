@@ -34,5 +34,6 @@
     "devDependencies": {
         "browser-sync": "^2.24.5",
         "cordova": "^7.1.0"
+          "tar": ">=4.4.2"
     }
 }
